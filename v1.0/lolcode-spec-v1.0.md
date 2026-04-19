@@ -3,7 +3,7 @@ HISTORICAL &mdash; 31 May 2007
 
 The following was generated in an IRC meeting as a way of providing a
 baseline for implementors. Many of the decisions are being revisited
-in version 1.1 and beyond, through discussion, consensus, and fiat in
+in [version 1.1](../v1.1/lolcode-spec-v1.1.md) and beyond, through discussion, consensus, and fiat in
 the forum.
 
 ## Canon
