@@ -279,7 +279,7 @@ The variable types that LOLCODE currently recognizes are: strings
 (`YARN`), integers (`NUMBR`), floats (`NUMBAR`), and booleans (`TROOF`)
 (Arrays (`BUKKIT`) are reserved for future expansion.)  
 Typing is handled dynamically. Until a variable is given an initial
-value, it is untyped (`NOOB`). ~~Casting operations operate on TYPE
+value, it is untyped (`NOOB`). ~~Casting operations operate on `TYPE`
 types, as well.~~
 
 ### Untyped
@@ -364,7 +364,8 @@ mean that type comparisons are left unresolved in the meantime.*
 ### Calling Syntax and Precedence
 
 Mathematical operators and functions in general rely on prefix
-notation. By doing this, it is possible to call and compose operations
+notation.  
+By doing this, it is possible to call and compose operations
 with a minimum of explicit grouping.  
 When all operators and functions have known arity, no grouping markers
 are necessary.  
@@ -410,12 +411,12 @@ SMALLR OF <x> AN <y>    BTW min
 `<x>` and `<y>` may each be expressions in the above, so mathematical
 operators can be nested and grouped indefinitely.
 
-Math is performed as integer math in the presence of two `NUMBR`s, but
-if either of the expressions are `NUMBAR`s, then floating point math
+Math is performed as integer math in the presence of two `NUMBR`, but
+if either of the expressions are `NUMBAR`, then floating point math
 takes over.
 
-If one or both arguments are a `YARN`, they get interpreted as `NUMBAR`s.  
-if the `YARN` has a decimal point, and NUMBRs otherwise, then execution
+If one or both arguments are a `YARN`, they get interpreted as `NUMBAR`.  
+if the `YARN` has a decimal point, and `NUMBR` otherwise, then execution
 proceeds as above.
 
 If one or another of the arguments cannot be safely cast to a
@@ -423,7 +424,7 @@ numerical type, then it fails with an error.
 
 ### Boolean
 
-Boolean operators working on `TROOF`s are as follows:
+Boolean operators working on `TROOF` are as follows:
 
 ```lolcode
 BOTH OF <x> [AN] <y>          BTW and: WIN iff x=WIN, y=WIN
@@ -447,7 +448,7 @@ DIFFRINT <x> [AN] <y>    BTW WIN iff x != y
 ```
 
 Comparisons are performed as integer math in the presence of two
-NUMBRs, but if either of the expressions are `NUMBAR`s, then floating
+NUMBRs, but if either of the expressions are `NUMBAR`, then floating
 point math takes over. Otherwise, there is no automatic casting in the
 equality, so `BOTH SAEM "3" AN 3` is `FAIL`.
 
@@ -476,7 +477,7 @@ operators.*
 
 ### Concatenation
 
-An indefinite number of `YARN`s may be explicitly concatenated with
+An indefinite number of `YARN` may be explicitly concatenated with
 the `SMOOSH...MKAY` operator. Arguments may optionally be separated
 with `AN`.  
 As the `SMOOSH` expects strings as its input arguments, it will
@@ -516,7 +517,7 @@ statement as follows:
 
 The print (to `STDOUT` or the terminal) operator is `VISIBLE`.  
 It has infinite arity and implicitly concatenates all of its arguments
-after casting them to `YARN`s. It is terminated by the statement
+after casting them to `YARN`. It is terminated by the statement
 delimiter (line end or comma).  
 The output is automatically terminated with a carriage return (`:`)),
 unless the final token is terminated with an exclamation point (`!`),
@@ -766,7 +767,7 @@ IF U SAY SO
 
 Currently, the number of arguments in a function can only be defined
 as a fixed number.  
-The `<argument>`s are single-word identifiers that act as variables
+The `<argument>` are single-word identifiers that act as variables
 within the scope of the function's code. The calling parameters'
 values are then the initial values for the variables within the
 function's code block when the function is called.
@@ -805,11 +806,11 @@ namespace vs. a function call on a `BUKKIT` (defined below).
 
 *(updated from 1.2)*
 
-`BUKKIT`s are the container type. They may hold `NUMBR`s, `NUMBAR`s,
-`TROOF`s, `YARN`s, functions (`FUNKSHUN`), and other `BUKKIT`s.  
+`BUKKIT` are the container type. They may hold `NUMBR`, `NUMBAR`,
+`TROOF`, `YARN`, functions (`FUNKSHUN`), and other `BUKKIT`.  
 Each entity within a `BUKKIT` may be indexed by a `NUMBR` or a
-`YARN`. These indices, whether `NUMBR`s or `YARN`s, referring to
-functions, variables, or other `BUKKIT`s, are generically called
+`YARN`. These indices, whether `NUMBR` or `YARN`, referring to
+functions, variables, or other `BUKKIT`, are generically called
 “slots”.
 
 ### Declaration
@@ -820,7 +821,7 @@ To create an empty object within the current object's scope:
 I HAS A <object> ITZ A BUKKIT
 ```
 
-This object will have the default behavior of all `BUKKIT`s.
+This object will have the default behavior of all `BUKKIT`.
 
 ### Slot Creation / Assignment
 
@@ -867,7 +868,7 @@ IF U SAY SO
 
 ### Scope
 
-Functions operate differently in the context of `BUKKIT`s. When a
+Functions operate differently in the context of `BUKKIT`. When a
 function is called from an object, some scope rules and variable
 resolution change.
 
@@ -998,7 +999,7 @@ prototyped, and guarantees a “well-formed” `BUKKIT`.
 
 To create an object based upon an existing object:
 
-```
+```lolcode
 I HAS A <object> ITZ LIEK A <parent>
 ```
 
@@ -1006,7 +1007,7 @@ Behavior of this sort of inheritance is described further below.
 
 To define inheritance using alternate syntax, do the following.
 
-```
+```lolcode
 O HAI IM <object> [IM LIEK <parent>]
   <code block>
 KTHX
@@ -1016,8 +1017,8 @@ Inheritance implies a few things, one of which is inheritance of slots
 (described below). Another thing inheritance does is automatically
 create a “parent” slot on the new object. The “parent” slot refers to
 the object that this object was inherited from, or its prototype. The
-parent slot is treated specially by the Bukkit. An interesting side
-effect of this is that a Bukkit may change its “parent”/“prototype” by
+parent slot is treated specially by the `BUKKIT`. An interesting side
+effect of this is that a `BUKKIT` may change its “parent” / “prototype” by
 changing its parent slot. More on this later.
 
 #### Inheritance of slots
@@ -1029,7 +1030,7 @@ Accessing a variable from within the current object looks for that
 variable within the current object. If it is not found, it searches
 for the variable within the parent object (using the parent slot), and
 on up the chain of parents until it reaches an object where the parent
-slot is NOOB or it reaches a parent object is has already searched
+slot is `NOOB` or it reaches a parent object is has already searched
 before.
 
 Assigning a variable within the object first searches for it within
@@ -1111,7 +1112,7 @@ defined when the mixin takes place. If the `FileStuffz` or `ZipStuffz`
 objects change after the `ZipFileRiver` object is defined, the
 `ZipFileRiver` class does not see the change.
 
-Here's a method of performing Mixin-Inheritance after a BUKKIT has
+Here's a method of performing Mixin-Inheritance after a `BUKKIT` has
 been created.
 
 Example:

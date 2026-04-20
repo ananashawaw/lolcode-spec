@@ -161,7 +161,7 @@ The variable types that LOLCODE currently recognizes are: strings
 (`YARN`), integers (`NUMBR`), floats (`NUMBAR`), and booleans
 (`TROOF`) (Arrays (`BUKKIT`) are reserved for future expansion.)  
 Typing is handled dynamically. Until a variable is given an initial
-value, it is untyped (`NOOB`). ~~Casting operations operate on TYPE
+value, it is untyped (`NOOB`). ~~Casting operations operate on `TYPE`
 types, as well.~~
 
 ### Untyped
@@ -239,11 +239,11 @@ discussion.*
 
 ### Types
 
-The TYPE type only has the values of `TROOF`, `NOOB`, `NUMBR`, `NUMBAR`, `YARN`,
-and TYPE, as bare words. They may be legally cast to `TROOF` (all true
+The `TYPE` type only has the values of `TROOF`, `NOOB`, `NUMBR`, `NUMBAR`, `YARN`,
+and `TYPE`, as bare words. They may be legally cast to `TROOF` (all true
 except for `NOOB`) or `YARN`.
 
-*TYPEs are under current review. Current sentiment is to delay
+*`TYPE` are under current review. Current sentiment is to delay
 defining them until user-defined types are relevant, but that would
 mean that type comparisons are left unresolved in the meantime.*
 
@@ -252,7 +252,8 @@ mean that type comparisons are left unresolved in the meantime.*
 ### Calling Syntax and Precedence
 
 Mathematical operators and functions in general rely on prefix
-notation. By doing this, it is possible to call and compose operations
+notation.  
+By doing this, it is possible to call and compose operations
 with a minimum of explicit grouping.  
 When all operators and functions have known arity, no grouping markers
 are necessary.  
@@ -298,12 +299,12 @@ SMALLR OF <x> AN <y>    BTW min
 `<x>` and `<y>` may each be expressions in the above, so mathematical
 operators can be nested and grouped indefinitely.
 
-Math is performed as integer math in the presence of two `NUMBR`s, but
-if either of the expressions are `NUMBAR`s, then floating point math
+Math is performed as integer math in the presence of two `NUMBR`, but
+if either of the expressions are `NUMBAR`, then floating point math
 takes over.
 
-If one or both arguments are a `YARN`, they get interpreted as `NUMBAR`s.  
-if the `YARN` has a decimal point, and NUMBRs otherwise, then execution
+If one or both arguments are a `YARN`, they get interpreted as `NUMBAR`.  
+if the `YARN` has a decimal point, and `NUMBR` otherwise, then execution
 proceeds as above.
 
 If one or another of the arguments cannot be safely cast to a
@@ -311,7 +312,7 @@ numerical type, then it fails with an error.
 
 ### Boolean
 
-Boolean operators working on `TROOF`s are as follows:
+Boolean operators working on `TROOF` are as follows:
 
 ```lolcode
 BOTH OF <x> [AN] <y>          BTW and: WIN iff x=WIN, y=WIN
@@ -335,7 +336,7 @@ DIFFRINT <x> [AN] <y>    BTW WIN iff x != y
 ```
 
 Comparisons are performed as integer math in the presence of two
-NUMBRs, but if either of the expressions are `NUMBAR`s, then floating
+NUMBRs, but if either of the expressions are `NUMBAR`, then floating
 point math takes over. Otherwise, there is no automatic casting in the
 equality, so `BOTH SAEM "3" AN 3` is `FAIL`.
 
@@ -364,7 +365,7 @@ operators.*
 
 ### Concatenation
 
-An indefinite number of `YARN`s may be explicitly concatenated with
+An indefinite number of `YARN` may be explicitly concatenated with
 the `SMOOSH...MKAY` operator. Arguments may optionally be separated
 with `AN`.  
 As the `SMOOSH` expects strings as its input arguments, it will
@@ -404,7 +405,7 @@ statement as follows:
 
 The print (to `STDOUT` or the terminal) operator is `VISIBLE`.  
 It has infinite arity and implicitly concatenates all of its arguments
-after casting them to `YARN`s. It is terminated by the statement
+after casting them to `YARN`. It is terminated by the statement
 delimiter (line end or comma).  
 The output is automatically terminated with a carriage return (`:`)),
 unless the final token is terminated with an exclamation point (`!`),
@@ -654,7 +655,7 @@ IF U SAY SO
 
 Currently, the number of arguments in a function can only be defined
 as a fixed number.  
-The `<argument>`s are single-word identifiers that act as variables
+The `<argument>` are single-word identifiers that act as variables
 within the scope of the function's code. The calling parameters'
 values are then the initial values for the variables within the
 function's code block when the function is called.
