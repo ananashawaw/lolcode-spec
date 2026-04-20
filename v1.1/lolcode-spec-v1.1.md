@@ -1,3 +1,18 @@
+# Table of Contents <!-- :TOC: -->
+- [LOLCODE recommendation 1.1](#lolcode-recommendation-11)
+  - [CREATING A LOLCODE FILE](#creating-a-lolcode-file)
+  - [TYPING AND VARIABLE DECLARATIONS](#typing-and-variable-declarations)
+  - [KEYWORDS](#keywords)
+  - [IDENTIFIERS](#identifiers)
+  - [COMMENTS](#comments)
+  - [UNINITIALIZED AND NULL VALUES](#uninitialized-and-null-values)
+  - [CONDITIONALS](#conditionals)
+    - [IF-THEN](#if-then)
+    - [SWITCHES](#switches)
+- [INPUT AND OUTPUT](#input-and-output)
+  - [ARRAYS AND HASHES](#arrays-and-hashes)
+  - [GOTO](#goto)
+
 # LOLCODE recommendation 1.1
 DRAFT &mdash; June 19th, 2007
 
@@ -98,10 +113,10 @@ TLDR, I HAS A FISH ITZ BOB
 ## UNINITIALIZED AND NULL VALUES
 
 All uninitialized values return a null value signified by `NOOB`. All
-uninitialized array and hash elements are `NOOB`. Uninitialized `NUMBR`s
+uninitialized array and hash elements are `NOOB`. Uninitialized `NUMBR`
 or those that have been assigned the value `NOOB` cannot be operated
 on. Attempting to perform math on them will cause an error. Only
-direct equality comparisons can be made on `NUMBR`s with `NOOB`
+direct equality comparisons can be made on `NUMBR` with `NOOB`
 values.  
 Use of `BIGR` and `SMALR` and their variations to compare a value
 to `NOOB` will result in an error.

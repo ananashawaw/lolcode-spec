@@ -1,3 +1,16 @@
+# Table of Contents <!-- :TOC: -->
+- [Examples](#examples)
+  - [Caturday](#caturday)
+    - [On carturday](#on-carturday)
+  - [Count 1](#count-1)
+    - [COUNT!!1](#count1)
+  - [FILEZORZ](#filezorz)
+  - [Gimmeh](#gimmeh)
+    - [Read Some Input](#read-some-input)
+  - [HAI WORLD](#hai-world)
+  - [Little Number](#little-number)
+    - [IF/THEN/ELSE](#ifthenelse)
+
 # Examples
 ## Caturday
 ### On carturday

@@ -1,6 +1,62 @@
+# Table of Contents <!-- :TOC: -->
+- [LOLCODE Specification 1.3](#lolcode-specification-13)
+  - [Formatting](#formatting)
+    - [Whitespace](#whitespace)
+    - [Comments](#comments)
+    - [File Creation](#file-creation)
+  - [Variables](#variables)
+    - [Memory](#memory)
+    - [Scope](#scope)
+    - [Naming](#naming)
+    - [Declaration](#declaration)
+    - [Deallocation](#deallocation)
+    - [Primitive Types](#primitive-types)
+    - [SRS (serious) Cast](#srs-serious-cast)
+    - [Assignment](#assignment)
+  - [Types](#types)
+    - [Untyped](#untyped)
+    - [Booleans](#booleans)
+    - [Numerical Types](#numerical-types)
+    - [Strings](#strings)
+    - [Types](#types-1)
+  - [Operators](#operators)
+    - [Calling Syntax and Precedence](#calling-syntax-and-precedence)
+    - [Math](#math)
+    - [Boolean](#boolean)
+    - [Comparison](#comparison)
+    - [Concatenation](#concatenation)
+    - [Casting](#casting)
+  - [Input/Output](#inputoutput)
+    - [Terminal-Based](#terminal-based)
+  - [Statements](#statements)
+    - [Expression Statements](#expression-statements)
+    - [Assignment Statements](#assignment-statements)
+    - [Flow Control Statements](#flow-control-statements)
+  - [Flow Control](#flow-control)
+    - [Conditionals](#conditionals)
+      - [If-Then](#if-then)
+      - [Case](#case)
+      - [Loops](#loops)
+  - [Functions](#functions)
+    - [Definition](#definition)
+    - [Returning](#returning)
+    - [Calling](#calling)
+  - [Arrays](#arrays)
+    - [Declaration](#declaration-1)
+    - [Slot Creation / Assignment](#slot-creation--assignment)
+    - [Functions](#functions-1)
+    - [Scope](#scope-1)
+    - [Alternate Syntax](#alternate-syntax)
+    - [Slot Access](#slot-access)
+    - [Special Slots](#special-slots)
+    - [Inheritance / Prototyping](#inheritance--prototyping)
+      - [Inheritance of slots](#inheritance-of-slots)
+      - [Functions and Inheritance](#functions-and-inheritance)
+      - [Inheritance](#inheritance)
+
 # LOLCODE Specification 1.3
 
-DRAFT &mdash; 12 July 2007
+DRAFT &mdash; 12 July 2007¹
 
 *The goal of this specification is to advance the [LOLCODE 1.2
 specification](../v1.2/lolcode-spec-v1.2.md) with generally
@@ -13,7 +69,7 @@ programming languages.*
 
 Archived references:
 
-* [Original goals for the 1.3 specification proposal](https://web.archive.org/web/20130113074443/http://lolcode.com/proposals/1.3/1.3)
+- [Original goals for the 1.3 specification proposal](https://web.archive.org/web/20130113074443/http://lolcode.com/proposals/1.3/1.3)
 
 ## Formatting
 
@@ -21,48 +77,48 @@ Archived references:
 
 *(from 1.2)*
 
-* Spaces are used to demarcate tokens in the language, although some
+- Spaces are used to demarcate tokens in the language, although some
   keyword constructs may include spaces.
 
-* Multiple spaces and tabs are treated as single spaces and are
+- Multiple spaces and tabs are treated as single spaces and are
   otherwise irrelevant.
 
-* Indentation is irrelevant.
+- Indentation is irrelevant.
 
-* A command starts at the beginning of a line and a newline indicates
+- A command starts at the beginning of a line and a newline indicates
   the end of a command, except in special cases.
 
-* A newline will be Carriage Return (/13), a Line Feed (/10) or both
+- A newline will be Carriage Return (/13), a Line Feed (/10) or both
   (/13/10) depending on the implementing system.  
   This is only in regards to LOLCODE code itself, and does not
   indicate how these should be treated in strings or files during
   execution.
 
-* Multiple commands can be put on a single line if they are separated
+- Multiple commands can be put on a single line if they are separated
   by a comma (,). In this case, the comma acts as a virtual newline or
   a soft-command-break.
 
-* Multiple lines can be combined into a single command by including
+- Multiple lines can be combined into a single command by including
   three periods (...) or the unicode ellipsis character (u2026) at the
   end of the line. This causes the contents of the next line to be
   evaluated as if it were on the same line.
 
-* Lines with line continuation can be strung together, many in a row,
+- Lines with line continuation can be strung together, many in a row,
   to allow a single command to stretch over more than one or two
   lines. As long as each line is ended with three periods, the next
   line is included, until a line without three periods is reached, at
   which point, the entire command may be processed.
 
-* A line with line continuation may not be followed by an empty line.
+- A line with line continuation may not be followed by an empty line.
   Three periods may be by themselves on a single line, in which case,
   the empty line is "included" in the command (doing nothing), and the
   next line is included as well.
 
-* A single-line comment is always terminated by a newline. Line
+- A single-line comment is always terminated by a newline. Line
   continuation (`...`) and soft-command-breaks (`,`) after the comment
   (`BTW`) are ignored.
 
-* Line continuation and soft-command-breaks are ignored inside quoted
+- Line continuation and soft-command-breaks are ignored inside quoted
   strings. An unterminated string literal (no closing quote) will
   cause an error.
 
@@ -178,11 +234,11 @@ This instatiates a variable, and initializes it to a default value.
 
 Built-In default values:
 
-* `YARN` - `""`
-* `TROOF` - `FAIL`
-* `NUMBR` - `0`
-* `NUMBAR` - `0.0`
-* `NOOB` - `NOOB`
+- `YARN` - `""`
+- `TROOF` - `FAIL`
+- `NUMBR` - `0`
+- `NUMBAR` - `0.0`
+- `NOOB` - `NOOB`
 
 ```lolcode
 I HAS A <variable>
@@ -333,29 +389,29 @@ Within a string, all characters represent their literal value except
 the colon (`:`), which is the escape character. Characters immediately
 following the colon also take on a special meaning.
 
-* `:)` represents a newline (`\n`)
-* `:>` represents a tab (`\t`)
-* `:o` represents a bell (beep) (`\g`)
-* `:"` represents a literal double quote (`"`)
-* `::` represents a single literal colon (`:`)
+- `:)` represents a newline (`\n`)
+- `:>` represents a tab (`\t`)
+- `:o` represents a bell (beep) (`\g`)
+- `:"` represents a literal double quote (`"`)
+- `::` represents a single literal colon (`:`)
 
 The colon may also introduce more verbose escapes enclosed within some form of bracket.
 
-* `:(<hex>)` resolves the hex number into the corresponding Unicode
+- `:(<hex>)` resolves the hex number into the corresponding Unicode
   code point.
-* `:{<var>}` interpolates the current value of the enclosed variable,
+- `:{<var>}` interpolates the current value of the enclosed variable,
   cast as a string.
-* `:[<char name>]` resolves the `<char name>` in capital letters to
+- `:[<char name>]` resolves the `<char name>` in capital letters to
   the corresponding Unicode
   [normative name](http://www.unicode.org/Public/4.1.0/ucd/NamesList.txt).
 
 ### Types
 
-The TYPE type only has the values of `TROOF`, `NOOB`, `NUMBR`, `NUMBAR`, `YARN`,
-and TYPE, as bare words. They may be legally cast to `TROOF` (all true
+The `TYPE` type only has the values of `TROOF`, `NOOB`, `NUMBR`, `NUMBAR`, `YARN`,
+and `TYPE`, as bare words. They may be legally cast to `TROOF` (all true
 except for `NOOB`) or `YARN`.
 
-*TYPEs are under current review. Current sentiment is to delay
+*`TYPE` are under current review. Current sentiment is to delay
 defining them until user-defined types are relevant, but that would
 mean that type comparisons are left unresolved in the meantime.*
 
@@ -779,9 +835,9 @@ block's variables.*
 
 Return from the function is accomplished in one of the following ways:
 
-* `FOUND YR <expression>` returns the value of the expression.
-* `GTFO` returns with no value (`NOOB`).
-* in the absence of any explicit break, when the end of the code block
+- `FOUND YR <expression>` returns the value of the expression.
+- `GTFO` returns with no value (`NOOB`).
+- in the absence of any explicit break, when the end of the code block
   is reached (`IF U SAY SO`), the value in `IT` is returned.
 
 ### Calling
@@ -875,9 +931,9 @@ resolution change.
 When an identifier is used in a function, the variable is looked up in
 the following manner:
 
-* The function namespace
-* The calling object's namespace (if called from object)
-* The “global” namespace
+- The function namespace
+- The calling object's namespace (if called from object)
+- The “global” namespace
 
 *IT is always looked up from global namespace*
 
@@ -979,9 +1035,9 @@ This will call `get<varName>` on object.
 
 Every `BUKKIT` contains a few slots that have special meaning
 
-* `parent`
-* `omgwtf`
-* `izmakin`
+- `parent`
+- `omgwtf`
+- `izmakin`
 
 `parent` refers to a `BUKKIT`'s “parent” object and is described below.
 

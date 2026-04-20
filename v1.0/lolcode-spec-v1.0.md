@@ -1,3 +1,8 @@
+# Table of Contents <!-- :TOC: -->
+- [LOLCODE recommendation 1.0](#lolcode-recommendation-10)
+  - [Canon](#canon)
+  - [UNOFFICIAL](#unofficial)
+
 # LOLCODE recommendation 1.0
 HISTORICAL &mdash; 31 May 2007
 
